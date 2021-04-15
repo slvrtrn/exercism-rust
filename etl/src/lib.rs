@@ -5,12 +5,7 @@ pub fn transform(h: &BTreeMap<i32, Vec<char>>) -> BTreeMap<char, i32> {
     for (k, v) in h.into_iter() {
         for c in v.into_iter() {
             let lowercase = c.to_ascii_lowercase();
-            result.insert(
-                lowercase,
-                result.get(&lowercase)
-                    .map(|x| x + k)
-                    .unwrap_or(*k),
-            );
+            result.insert(lowercase, *k);
         }
     }
     result
